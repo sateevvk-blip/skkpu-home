@@ -1,0 +1,276 @@
+/* ═══════════════════════════════════════════════════════════════════
+   SVK Design System — Tokens
+   ───────────────────────────────────────────────────────────────────
+   SVK ships products in three distinct visual registers:
+     • dashboard  — utilitarian Russian-gov data-app  (blue/Inter)
+     • marketing  — soft coral marketing/demo pages   (coral/Montserrat)
+     • editorial  — pixel-art Japan travel guide      (vermilion+gold/Space Grotesk)
+
+   Every token below is namespaced by family. The semantic block at the
+   bottom maps the active register onto h1/p/etc.; flip the data-svk
+   attribute on <html> to switch.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Fonts (loaded from Google Fonts CDN) ─────────────────────── */
+  --font-inter:        'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-montserrat:   'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-grotesk:      'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-jp:           'Noto Sans JP', sans-serif;
+  --font-mono:         ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+
+  /* ─── Type scale (shared) ──────────────────────────────────────── */
+  --text-2xs:  0.6875rem; /* 11 */
+  --text-xs:   0.75rem;   /* 12 */
+  --text-sm:   0.8125rem; /* 13 */
+  --text-base: 0.9375rem; /* 15 */
+  --text-md:   1rem;      /* 16 */
+  --text-lg:   1.125rem;  /* 18 */
+  --text-xl:   1.375rem;  /* 22 */
+  --text-2xl:  1.75rem;   /* 28 */
+  --text-3xl:  2.25rem;   /* 36 */
+  --text-display: clamp(2.5rem, 1rem + 4vw, 5rem);
+  --text-hero:    clamp(3rem, 0.5rem + 7vw, 8rem);
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-heavy:   800;
+  --weight-black:   900;
+
+  --leading-tight:   1.15;
+  --leading-snug:    1.35;
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight:  -0.03em;
+  --tracking-display:-0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-caps:    0.08em;
+  --tracking-mega:    0.14em;
+
+  /* ─── Spacing (4-px base, shared) ──────────────────────────────── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ─── Radii ────────────────────────────────────────────────────── */
+  --radius-none: 0;       /* editorial / pixel-art */
+  --radius-sm:   6px;
+  --radius-md:   10px;    /* dashboard cards */
+  --radius-lg:   14px;    /* dashboard panels */
+  --radius-xl:   20px;    /* marketing cards */
+  --radius-pill: 9999px;
+
+  /* ─── Shadows ──────────────────────────────────────────────────── */
+  --shadow-xs:   0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm:   0 1px 6px rgba(15, 23, 42, 0.05);   /* dashboard cards */
+  --shadow-md:   0 2px 8px rgba(0, 0, 0, 0.06);      /* marketing cards */
+  --shadow-lg:   0 8px 24px rgba(15, 23, 42, 0.12);  /* hover lift */
+  --shadow-xl:   0 12px 30px rgba(0, 0, 0, 0.12);    /* marketing hover */
+  --shadow-coral:0 6px 16px rgba(255, 107, 107, 0.3);
+  --shadow-deep: 0 12px 32px oklch(0 0 0 / 0.5);     /* editorial dark */
+
+  /* ─── Easing & duration ────────────────────────────────────────── */
+  --ease-interactive: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duration-fast:  150ms;
+  --duration-base:  200ms;
+  --duration-slow:  300ms;
+  --duration-slower:600ms;
+
+  /* ═══════════════════════════════════════════════════════════════
+     DASHBOARD register (СККПУ — Russian gov data app)
+     ─────────────────────────────────────────────────────────────── */
+  --dash-primary:    #2563eb;
+  --dash-primary-dk: #1d4ed8;
+  --dash-primary-tint:#eff6ff;
+  --dash-bg:         #f1f5f9;
+  --dash-surface:    #ffffff;
+  --dash-surface-2:  #f8fafc;
+  --dash-text:       #111827;
+  --dash-text-muted: #6b7280;
+  --dash-border:     #e5e7eb;
+  --dash-divider:    #f1f5f9;
+  /* Status / traffic-light */
+  --dash-red:    #ef4444;
+  --dash-yellow: #f59e0b;
+  --dash-green:  #10b981;
+  --dash-red-bg:    #fef2f2;
+  --dash-yellow-bg: #fffbeb;
+  --dash-green-bg:  #f0fdf4;
+  --dash-red-text:    #b91c1c;
+  --dash-yellow-text: #92400e;
+  --dash-green-text:  #065f46;
+  /* Hero banner gradient */
+  --dash-banner: linear-gradient(135deg, #1e3a5f, #2563eb);
+  --dash-banner-deep: linear-gradient(135deg, #172554, #2563eb);
+  --dash-logo-grad:   linear-gradient(135deg, #2563eb, #60a5fa);
+
+  /* ═══════════════════════════════════════════════════════════════
+     MARKETING register (СККПУ-demo / pitch decks)
+     ─────────────────────────────────────────────────────────────── */
+  --mkt-primary:      #ff6b6b;     /* coral */
+  --mkt-primary-hover:#ff8a80;
+  --mkt-ink:          #2d2d2d;     /* hero / nav bg */
+  --mkt-ink-2:        #1f1f1f;
+  --mkt-text:         #333333;
+  --mkt-text-muted:   #666666;
+  --mkt-text-faint:   #999999;
+  --mkt-bg:           #f5f5f5;
+  --mkt-surface:      #ffffff;
+  --mkt-surface-2:    #f0f0f0;
+  --mkt-border:       #e0e0e0;
+  --mkt-divider:      #e8e8e8;
+  --mkt-hero:         linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%);
+  --mkt-role-pm:      #ff6b6b;
+  --mkt-role-analyst: #ff8a80;
+  --mkt-role-client:  #666666;
+  --mkt-role-dev:     #333333;
+  --mkt-role-senior:  #2d2d2d;
+
+  /* ═══════════════════════════════════════════════════════════════
+     EDITORIAL register (Japan Guide — pixel-art travel)
+     ─────────────────────────────────────────────────────────────── */
+  /* Dark (default) */
+  --ed-bg:               #0f0e0c;
+  --ed-surface:          #151310;
+  --ed-surface-2:        #1a1814;
+  --ed-surface-offset:   #201d19;
+  --ed-surface-dynamic:  #2a2620;
+  --ed-divider:          #2e2a24;
+  --ed-border:           #38332b;
+  --ed-text:             #ede8df;
+  --ed-text-muted:       #9a9080;
+  --ed-text-faint:       #5a5248;
+  --ed-text-inverse:     #12100e;
+  /* Accents */
+  --ed-vermilion:        #e63946;    /* torii red */
+  --ed-vermilion-hover:  #c8222f;
+  --ed-vermilion-active: #a81520;
+  --ed-vermilion-tint:   #3a1b1e;
+  --ed-gold:             #d4a017;
+  --ed-gold-hover:       #b88512;
+  --ed-gold-tint:        #3a2e10;
+  --ed-indigo:           #4a7fbd;
+  --ed-indigo-tint:      #1a2535;
+
+  /* ─── Pixel border (editorial signature) ───────────────────────── */
+  --pixel-border: 2px solid var(--ed-border);
+
+  /* ───────────────────────────────────────────────────────────────
+     SEMANTIC ALIASES — default to DASHBOARD register
+     Set <html data-svk="marketing"> or "editorial" to switch.
+     ─────────────────────────────────────────────────────────────── */
+  --primary:     var(--dash-primary);
+  --primary-dk:  var(--dash-primary-dk);
+  --bg:          var(--dash-bg);
+  --surface:     var(--dash-surface);
+  --surface-2:   var(--dash-surface-2);
+  --text:        var(--dash-text);
+  --text-muted:  var(--dash-text-muted);
+  --border:      var(--dash-border);
+  --divider:     var(--dash-divider);
+  --red:         var(--dash-red);
+  --yellow:      var(--dash-yellow);
+  --green:       var(--dash-green);
+  --font-display:var(--font-inter);
+  --font-body:   var(--font-inter);
+}
+
+/* ─── Register switches ────────────────────────────────────────── */
+[data-svk="marketing"] {
+  --primary:     var(--mkt-primary);
+  --primary-dk:  var(--mkt-primary-hover);
+  --bg:          var(--mkt-bg);
+  --surface:     var(--mkt-surface);
+  --surface-2:   var(--mkt-surface-2);
+  --text:        var(--mkt-text);
+  --text-muted:  var(--mkt-text-muted);
+  --border:      var(--mkt-border);
+  --divider:     var(--mkt-divider);
+  --font-display:var(--font-montserrat);
+  --font-body:   var(--font-montserrat);
+}
+[data-svk="editorial"] {
+  --primary:     var(--ed-vermilion);
+  --primary-dk:  var(--ed-vermilion-hover);
+  --bg:          var(--ed-bg);
+  --surface:     var(--ed-surface);
+  --surface-2:   var(--ed-surface-2);
+  --text:        var(--ed-text);
+  --text-muted:  var(--ed-text-muted);
+  --border:      var(--ed-border);
+  --divider:     var(--ed-divider);
+  --font-display:var(--font-grotesk);
+  --font-body:   var(--font-grotesk);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEMANTIC TYPE — applies to bare HTML when a register is set.
+   Pages that need custom styling override these locally.
+   ═══════════════════════════════════════════════════════════════ */
+.svk-typeset h1, .svk-h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--text);
+}
+.svk-typeset h2, .svk-h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--text);
+}
+.svk-typeset h3, .svk-h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--text);
+}
+.svk-typeset h4, .svk-h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--text);
+}
+.svk-typeset p, .svk-p {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+.svk-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-mega);
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.svk-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+.svk-jp {
+  font-family: var(--font-jp);
+  font-weight: var(--weight-black);
+}
